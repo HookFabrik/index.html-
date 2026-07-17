@@ -236,15 +236,18 @@
 
   /* ---------- chain explainer ---------- */
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-  .comp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .comp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column}
   .comp-card.bad{background:#fbfaf6}
   .comp-tag{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:20px;display:inline-flex;align-items:center;gap:8px}
   .comp-tag.bad{color:var(--muted)}
   .comp-tag.good{color:var(--signal-deep)}
   .comp-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:8px;letter-spacing:-.01em}
   .comp-desc{color:var(--muted);font-size:.96rem;margin-bottom:22px}
-  .scatter{display:flex;flex-wrap:wrap;gap:8px}
-  .scatter .p{width:34px;height:34px;border-radius:7px;background:#EDEBE3;border:1px solid var(--line)}
+  .looseflow{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;margin-top:8px}
+  .lf-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px dashed #CDC9BC;border-radius:9px;background:#fff}
+  .lf-ico{flex-shrink:0;width:26px;height:26px;border-radius:6px;background:#F0EEE6;color:var(--signal-deep);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:1rem;font-weight:700}
+  .lf-t{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--ink);font-weight:400;line-height:1.4}
+  .lf-note{margin-left:auto;font-family:'Space Mono',monospace;font-size:.72rem;color:var(--muted-light);letter-spacing:.03em}
   .chainflow{display:flex;flex-direction:column;gap:0}
   .cf-step{display:flex;gap:14px;align-items:flex-start;position:relative;padding-bottom:18px}
   .cf-step:last-child{padding-bottom:0}
@@ -520,8 +523,11 @@
         <span class="comp-tag bad">◇ Normales Prompt-Pack</span>
         <div class="comp-title">50 lose Prompts</div>
         <p class="comp-desc">Jeder Prompt steht für sich. Du kopierst, fügst ein, fängst beim nächsten wieder von vorne an. Nichts baut aufeinander auf.</p>
-        <div class="scatter" aria-hidden="true">
-          <span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span>
+        <div class="looseflow">
+          <div class="lf-item"><span class="lf-ico">›</span><span class="lf-t">„Schreib mir 10 virale Hooks"</span></div>
+          <div class="lf-item"><span class="lf-ico">›</span><span class="lf-t">„Mach eine Caption dazu"</span></div>
+          <div class="lf-item"><span class="lf-ico">›</span><span class="lf-t">„Gib mir 30 Hashtags"</span></div>
+          <div class="lf-item"><span class="lf-ico">›</span><span class="lf-t">„Ideen fürs nächste Reel"</span></div>
         </div>
       </div>
 
