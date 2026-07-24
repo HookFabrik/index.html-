@@ -1634,5 +1634,13 @@ Kommentar-Bait.
   }
 })();
 </script>
+
+<!-- Digistore24 Promolink: schreibt die Checkout-Links auf Gutschein- bzw. Affiliate-Parameter um.
+     Steht bewusst hier unten, damit alle Kauf-Links im DOM sind, bevor das Skript laeuft. -->
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+  digistorePromocode( { "product_id": 707910, "adjust_domain": true } );
+</script>
+
 </body>
 </html>
