@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hookfabrik · Content-Systeme für Creator</title>
+<meta name="description" content="Hookfabrik baut Content-Systeme für Creator auf TikTok, Reels und YouTube Shorts. Keine losen Prompts, sondern Produktionsketten.">
+<link rel="canonical" href="https://hookfabrik.github.io/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hookfabrik">
+<meta property="og:title" content="Hookfabrik · Content-Systeme für Creator">
+<meta property="og:description" content="Keine losen Prompts, sondern Produktionsketten. Von der Rohidee bis zum Umsatz.">
+<meta property="og:url" content="https://hookfabrik.github.io/">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Archivo+Black&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hookfabrik",
+  "url": "https://hookfabrik.github.io/",
+  "description": "Content-Systeme für Creator auf TikTok, Reels und YouTube Shorts."
+}
+</script>
+<style>
+  :root{
+    --ink:#15151C; --ink-2:#1E1E27; --ink-3:#2A2A35;
+    --paper:#F3F2EC; --card:#FFFFFF;
+    --signal:#FF4A57; --signal-deep:#E63946; --mint:#14B8A0;
+    --muted:#6E6E77; --muted-light:#9A9AA2; --line:#E4E2D8;
+    --radius:14px; --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:#fff;
+    -webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;
+    display:flex;flex-direction:column;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;width:100%}
+
+  header{padding:30px 0}
+  .brand{font-family:'Archivo Black',sans-serif;font-size:1.32rem;letter-spacing:-.02em;display:inline-flex;align-items:flex-end}
+  .brand .hk{color:var(--signal)}
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--mint);margin-left:6px;margin-bottom:9px;box-shadow:0 0 0 3px rgba(20,184,160,.15)}
+
+  main{flex:1;display:flex;align-items:center;padding:40px 0 70px;position:relative}
+  main::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:52px 52px;
+    -webkit-mask-image:radial-gradient(ellipse 75% 80% at 50% 45%,#000 25%,transparent 100%);
+    mask-image:radial-gradient(ellipse 75% 80% at 50% 45%,#000 25%,transparent 100%);
+  }
+  .wrap{position:relative;z-index:1}
+
+  .eyebrow{
+    display:inline-block;font-family:'Space Mono',monospace;font-size:.72rem;
+    letter-spacing:.2em;text-transform:uppercase;color:#8E8E96;margin-bottom:20px;
+  }
+  h1{
+    font-family:'Archivo Black',sans-serif;font-size:clamp(2.5rem,6.5vw,4.4rem);
+    line-height:.98;letter-spacing:-.035em;margin-bottom:22px;
+  }
+  h1 .em{color:var(--signal)}
+  .lede{font-size:clamp(1.02rem,1.9vw,1.2rem);color:#AEADB4;max-width:60ch;line-height:1.6}
+  .lede b{color:#fff;font-weight:600}
+
+  .products{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+  .prod{
+    display:block;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--radius);
+    padding:30px 32px;position:relative;overflow:hidden;transition:transform .24s var(--ease),border-color .24s;
+  }
+  .prod::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--signal);transform:scaleY(0);transform-origin:top;transition:transform .26s var(--ease)}
+  .prod:hover{transform:translateY(-3px);border-color:#3C3C48}
+  .prod:hover::before{transform:scaleY(1)}
+  .prod .tag{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:14px;display:block}
+  .prod h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.42rem;letter-spacing:-.02em;margin-bottom:10px}
+  .prod p{font-size:.95rem;color:#9A9AA2;line-height:1.55;margin-bottom:18px}
+  .prod .go{font-family:'Space Mono',monospace;font-size:.78rem;color:#fff;display:inline-flex;align-items:center;gap:8px;transition:gap .2s var(--ease)}
+  .prod:hover .go{gap:13px}
+  .prod .px{position:absolute;top:28px;right:30px;font-family:'Archivo Black',sans-serif;font-size:1.15rem;color:#fff}
+
+  .prod.soon{opacity:.55}
+  .prod.soon::before{background:var(--muted-light)}
+  .prod.soon .tag{color:var(--muted-light)}
+  .prod.soon:hover{transform:none;border-color:var(--ink-3)}
+
+  footer{padding:26px 0 34px;border-top:1px solid var(--ink-3)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+    font-family:'Space Mono',monospace;font-size:.74rem;color:#6E6E77}
+  .foot a{color:#8E8E96;transition:color .2s}
+  .foot a:hover{color:#fff}
+  .foot nav{display:flex;gap:18px;flex-wrap:wrap}
+
+  @media(max-width:640px){
+    main{padding:20px 0 56px}
+    .products{margin-top:38px}
+    .prod{padding:26px 24px}
+    .prod .px{top:24px;right:24px;font-size:1rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="hk">Hook</span>fabrik<span class="dot"></span></a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <span class="eyebrow">Content-Systeme für Creator</span>
+    <h1>Keine losen Prompts.<br><span class="em">Produktionsketten.</span></h1>
+    <p class="lede">Hookfabrik baut Systeme für Leute, die regelmäßig posten müssen und keine Lust auf die leere Seite haben. <b>Jeder Schritt reicht dem nächsten weiter</b>, von der Rohidee bis zum Umsatz.</p>
+
+    <div class="products">
+      <a class="prod" href="/content-system/">
+        <span class="tag">// Claude Edition 2026</span>
+        <span class="px">59 €</span>
+        <h2>Content-System</h2>
+        <p>56 Prompts in 8 Kategorien, 56 Beispiel-Outputs, Master-Prompt und ein komplettes Praxisprojekt. Gebaut für Claude.</p>
+        <span class="go">Ansehen <span>&rarr;</span></span>
+      </a>
+
+      <!-- Produkt 2: Diesen Block kopieren, Texte und Link tauschen, Klasse "soon" entfernen. -->
+      <div class="prod soon">
+        <span class="tag">// In Arbeit</span>
+        <h2>Das Nächste</h2>
+        <p>Kommt, wenn es fertig ist. Nicht vorher.</p>
+        <span class="go">Bald</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span>© 2026 Hookfabrik</span>
+      <nav>
+        <a href="/content-system/">Content-System</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="mailto:hookfabrik@proton.me">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
