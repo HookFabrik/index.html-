@@ -239,12 +239,24 @@
   .line-track::-webkit-scrollbar{display:none}
   .line-rail{position:absolute;left:0;right:0;top:19px;height:2px;background:linear-gradient(90deg,var(--ink-3),var(--ink-3));z-index:0}
   .signal-dot{position:absolute;top:14px;left:0;width:12px;height:12px;border-radius:50%;background:var(--signal);z-index:3;
-    animation:travel 3.6s cubic-bezier(.34,.68,.28,1) .35s forwards, dotpulse 2.6s ease-in-out 4.2s infinite}
-  @keyframes travel{0%{left:0;opacity:0}8%{opacity:1}100%{left:calc(92.8% - 6px)}}
-  @keyframes travelY{0%{top:0;opacity:0}8%{opacity:1}100%{top:calc(92.8% - 6px)}}
-  @keyframes dotpulse{
-    0%,100%{box-shadow:0 0 0 5px rgba(255,74,87,.18),0 0 16px 2px rgba(255,74,87,.7)}
-    50%{box-shadow:0 0 0 9px rgba(255,74,87,.06),0 0 22px 4px rgba(255,74,87,.85)}
+    box-shadow:0 0 0 5px rgba(255,74,87,.18),0 0 16px 2px rgba(255,74,87,.7);
+    animation:travel 6s cubic-bezier(.42,.02,.32,1) .3s infinite}
+  /* Faehrt durch, zerplatzt an Station 07 statt sie zuzudecken, startet unsichtbar neu. */
+  @keyframes travel{
+    0%  {left:0;opacity:0;transform:scale(.5)}
+    5%  {opacity:1;transform:scale(1)}
+    58% {left:calc(92.8% - 6px);opacity:1;transform:scale(1)}
+    68% {left:calc(92.8% - 6px);opacity:.9;transform:scale(1.9)}
+    78% {left:calc(92.8% - 6px);opacity:0;transform:scale(2.6)}
+    79%,100%{left:0;opacity:0;transform:scale(.5)}
+  }
+  @keyframes travelY{
+    0%  {top:0;opacity:0;transform:scale(.5)}
+    5%  {opacity:1;transform:scale(1)}
+    58% {top:calc(92.8% - 6px);opacity:1;transform:scale(1)}
+    68% {top:calc(92.8% - 6px);opacity:.9;transform:scale(1.9)}
+    78% {top:calc(92.8% - 6px);opacity:0;transform:scale(2.6)}
+    79%,100%{top:0;opacity:0;transform:scale(.5)}
   }
   .station{position:relative;z-index:2;flex:1;min-width:96px;text-align:center}
   .station .node{width:40px;height:40px;border-radius:50%;background:var(--ink-2);border:1.5px solid var(--ink-3);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Space Mono',monospace;font-size:.8rem;color:#fff;font-weight:700}
@@ -528,7 +540,7 @@
   .cat:hover .out{transform:translateX(3px)}
 
   /* ================= NEU: Workflow-Schiene, scrollgesteuert ================= */
-  .flow-rail{position:absolute;left:4px;top:0;bottom:0;width:2px;background:var(--ink-3)}
+  .flow-rail{position:absolute;left:5.5px;top:0;bottom:0;width:2px;background:var(--ink-3)}
   .flow-rail i{position:absolute;left:0;top:0;width:2px;height:100%;transform:scaleY(0);transform-origin:top;background:linear-gradient(var(--signal),var(--signal-deep))}
   @supports (animation-timeline: view()){
     .flow-rail i{animation:railfill linear both;animation-timeline:view();animation-range:cover 6% cover 80%}
@@ -670,19 +682,24 @@
     .stat:nth-child(2){border-right:none}
     .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-dark)}
     .aud-grid{grid-template-columns:1fr}
+    .flow{padding-left:34px}
     .flow-step{grid-template-columns:1fr;gap:8px}
+    .flow-idx{padding-left:0;font-size:1.35rem}
+    .flow-idx::before{left:-34px;top:5px}
+    .flow-body h3{font-size:1.14rem}
+    .flow-body .tag{display:block;margin-left:0;margin-top:6px;line-height:1.5}
     .chain-result{flex-direction:column;align-items:flex-start}
     /* Produktionslinie vertikal statt horizontal */
     .line{margin-top:44px;padding-top:26px}
     .line-track{flex-direction:column;justify-content:flex-start;gap:0;overflow-x:visible;padding:0 0 0 8px}
     .line-rail{left:27px;right:auto;top:6px;bottom:6px;height:auto;width:2px}
-    .signal-dot{left:22px;top:0;animation:travelY 3.6s cubic-bezier(.34,.68,.28,1) .35s forwards, dotpulse 2.6s ease-in-out 4.2s infinite}
+    .signal-dot{left:22px;top:0;animation:travelY 6s cubic-bezier(.42,.02,.32,1) .3s infinite}
     .station{flex:none;width:100%;min-width:0;text-align:left;display:flex;align-items:center;gap:16px;padding:9px 0}
     .station .node{margin:0}
     .station .lbl{margin-top:0}
   }
   @media(prefers-reduced-motion:reduce){
-    .signal-dot{animation:none;left:calc(92.8% - 6px);box-shadow:0 0 0 5px rgba(255,74,87,.18)}
+    .signal-dot{display:none}
     .reveal{opacity:1;transform:none;transition:none}
     .out-card.pend{opacity:1;transform:none}
     .term-body.typing .ch{visibility:visible}
